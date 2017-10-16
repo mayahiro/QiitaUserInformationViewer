@@ -19,7 +19,7 @@ import xyz.mayahiro.qiitauserinformationviewer.model.User;
 import xyz.mayahiro.qiitauserinformationviewer.network.Network;
 
 public class MainActivity extends AppCompatActivity {
-    private static long PER_PAGE = 20;
+    private static final long PER_PAGE = 20;
 
     private ActivityMainBinding binding;
 
