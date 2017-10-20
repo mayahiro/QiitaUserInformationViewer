@@ -23,4 +23,18 @@ public interface QiitaApiService {
     Single<User> user(
             @Path("userId") String userId
     );
+
+    @GET("users/{userId}/followees")
+    Single<List<User>> followees(
+            @Path("userId") String userId,
+            @Query("page") Long page,
+            @Query("per_page") Long perPage
+    );
+
+    @GET("users/{userId}/followers")
+    Single<List<User>> followers(
+            @Path("userId") String userId,
+            @Query("page") Long page,
+            @Query("per_page") Long perPage
+    );
 }
