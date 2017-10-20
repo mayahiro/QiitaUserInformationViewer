@@ -83,6 +83,7 @@ public class UserDetailActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(@io.reactivex.annotations.NonNull Object obj) {
                         bind();
+                        binding.loadingMask.setVisibility(View.GONE);
                     }
 
                     @Override

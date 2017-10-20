@@ -1,8 +1,11 @@
 package xyz.mayahiro.qiitauserinformationviewer.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -91,7 +94,14 @@ public class UsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 binding.descriptionTextView.setVisibility(View.VISIBLE);
             }
 
-            binding.cardView.setOnClickListener(v -> itemView.getContext().startActivity(UserDetailActivity.createIntent(itemView.getContext(), user.id)));
+            binding.cardView.setOnClickListener(v -> {
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        (Activity) itemView.getContext(),
+                        binding.profileImageView,
+                        itemView.getContext().getString(R.string.transition_image_name)
+                );
+                ActivityCompat.startActivity(itemView.getContext(), UserDetailActivity.createIntent(itemView.getContext(), user.id), options.toBundle());
+            });
         }
     }
 }

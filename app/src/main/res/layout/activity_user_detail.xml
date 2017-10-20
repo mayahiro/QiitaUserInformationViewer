@@ -48,7 +48,8 @@
                         <android.support.v7.widget.AppCompatImageView
                             android:id="@+id/profile_image_view"
                             android:layout_width="48dp"
-                            android:layout_height="48dp" />
+                            android:layout_height="48dp"
+                            android:transitionName="@string/transition_image_name" />
 
                         <android.support.v7.widget.AppCompatTextView
                             android:id="@+id/name_text_view"
@@ -415,6 +416,24 @@
             </LinearLayout>
 
         </ScrollView>
+
+        <FrameLayout
+            android:id="@+id/loading_mask"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/cardview_light_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+        </FrameLayout>
 
     </android.support.constraint.ConstraintLayout>
 

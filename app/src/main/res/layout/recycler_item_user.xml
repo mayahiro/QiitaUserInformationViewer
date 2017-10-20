@@ -18,7 +18,8 @@
             <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/profile_image_view"
                 android:layout_width="48dp"
-                android:layout_height="48dp" />
+                android:layout_height="48dp"
+                android:transitionName="@string/transition_image_name" />
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/name_text_view"
