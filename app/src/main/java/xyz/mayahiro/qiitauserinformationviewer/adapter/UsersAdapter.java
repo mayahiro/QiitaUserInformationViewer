@@ -51,7 +51,7 @@ public class UsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     public void addAllUsers(List<User> users) {
         this.users.addAll(users);
-        notifyDataSetChanged();
+        notifyItemRangeInserted(this.users.size() - users.size(), users.size());
     }
 
     // view holder

@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
 
                 UsersAdapter adapter = (UsersAdapter) recyclerView.getAdapter();
-                if (adapter.getItemCount() - 5 == linearLayoutManager.findLastVisibleItemPosition()) {
+                if (adapter.getItemCount() - 10 == linearLayoutManager.findLastVisibleItemPosition()) {
                     getUsers();
                 }
             }
