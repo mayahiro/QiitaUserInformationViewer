@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="xyz.mayahiro.qiitauserinformationviewer.UserDetailActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/AppTheme.Toolbar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titleTextAppearance="@style/AppTheme.Toolbar.TitleText" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp">
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/profile_image_view"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:transitionName="@string/transition_image_name" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/name_text_view"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toTopOf="@+id/organization_text_view"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/profile_image_view"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/organization_text_view"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:alpha="0.54"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toTopOf="@+id/items_count_text_view"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/profile_image_view"
+                            app:layout_constraintTop_toBottomOf="@id/name_text_view" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/items_count_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toTopOf="@+id/facebook_text_view"
+                            app:layout_constraintEnd_toStartOf="@+id/followers_count_text_view"
+                            app:layout_constraintStart_toEndOf="@id/profile_image_view"
+                            app:layout_constraintTop_toBottomOf="@id/organization_text_view" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/followers_count_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:textSize="14sp"
+                            app:layout_constraintBaseline_toBaselineOf="@+id/items_count_text_view"
+                            app:layout_constraintEnd_toStartOf="@+id/followees_count_text_view"
+                            app:layout_constraintStart_toEndOf="@id/items_count_text_view" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/followees_count_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:textSize="14sp"
+                            app:layout_constraintBaseline_toBaselineOf="@+id/items_count_text_view"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/followers_count_text_view" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/facebook_text_view"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:autoLink="web"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toTopOf="@+id/github_text_view"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/profile_image_view"
+                            app:layout_constraintTop_toBottomOf="@+id/items_count_text_view" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/github_text_view"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:autoLink="web"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toTopOf="@+id/linkedin_text_view"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/profile_image_view"
+                            app:layout_constraintTop_toBottomOf="@+id/facebook_text_view" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/linkedin_text_view"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:autoLink="web"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toTopOf="@+id/twitter_text_view"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/profile_image_view"
+                            app:layout_constraintTop_toBottomOf="@+id/github_text_view" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/twitter_text_view"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:autoLink="web"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toTopOf="@+id/website_text_view"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/profile_image_view"
+                            app:layout_constraintTop_toBottomOf="@+id/linkedin_text_view" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/website_text_view"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:autoLink="web"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toTopOf="@+id/description_text_view"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/profile_image_view"
+                            app:layout_constraintTop_toBottomOf="@+id/twitter_text_view" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/description_text_view"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="16dp"
+                            android:lineSpacingMultiplier="1.2"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/profile_image_view"
+                            app:layout_constraintTop_toBottomOf="@+id/website_text_view"
+                            app:layout_goneMarginTop="16dp" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <RelativeLayout
+                    android:id="@+id/followers_title_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/followers_title_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toStartOf="@+id/more_followers_button"
+                        android:padding="16dp"
+                        android:text="Followers" />
+
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/more_followers_button"
+                        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="もっと見ない" />
+
+                </RelativeLayout>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/followers_card_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:divider="@drawable/divider"
+                        android:orientation="vertical"
+                        android:paddingBottom="8dp"
+                        android:paddingTop="8dp"
+                        android:showDividers="middle">
+
+                        <FrameLayout
+                            android:id="@+id/follower_layout_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:padding="16dp">
+
+                            <android.support.v7.widget.AppCompatImageView
+                                android:id="@+id/follower_image_view_1"
+                                android:layout_width="42dp"
+                                android:layout_height="42dp"
+                                android:layout_gravity="center_vertical" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/follower_name_text_view_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="56dp" />
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/follower_layout_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:padding="16dp">
+
+                            <android.support.v7.widget.AppCompatImageView
+                                android:id="@+id/follower_image_view_2"
+                                android:layout_width="42dp"
+                                android:layout_height="42dp"
+                                android:layout_gravity="center_vertical" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/follower_name_text_view_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="56dp" />
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/follower_layout_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:padding="16dp">
+
+                            <android.support.v7.widget.AppCompatImageView
+                                android:id="@+id/follower_image_view_3"
+                                android:layout_width="42dp"
+                                android:layout_height="42dp"
+                                android:layout_gravity="center_vertical" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/follower_name_text_view_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="56dp" />
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <RelativeLayout
+                    android:id="@+id/followees_title_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/followees_title_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toStartOf="@+id/more_followees_button"
+                        android:padding="16dp"
+                        android:text="Followees" />
+
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/more_followees_button"
+                        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="もっと見ない" />
+
+                </RelativeLayout>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/followees_card_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:divider="@drawable/divider"
+                        android:orientation="vertical"
+                        android:paddingBottom="8dp"
+                        android:paddingTop="8dp"
+                        android:showDividers="middle">
+
+                        <FrameLayout
+                            android:id="@+id/followee_layout_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:padding="16dp">
+
+                            <android.support.v7.widget.AppCompatImageView
+                                android:id="@+id/followee_image_view_1"
+                                android:layout_width="42dp"
+                                android:layout_height="42dp"
+                                android:layout_gravity="center_vertical" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/followee_name_text_view_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="56dp" />
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/followee_layout_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:padding="16dp">
+
+                            <android.support.v7.widget.AppCompatImageView
+                                android:id="@+id/followee_image_view_2"
+                                android:layout_width="42dp"
+                                android:layout_height="42dp"
+                                android:layout_gravity="center_vertical" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/followee_name_text_view_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="56dp" />
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/followee_layout_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:padding="16dp">
+
+                            <android.support.v7.widget.AppCompatImageView
+                                android:id="@+id/followee_image_view_3"
+                                android:layout_width="42dp"
+                                android:layout_height="42dp"
+                                android:layout_gravity="center_vertical" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/followee_name_text_view_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="56dp" />
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <FrameLayout
+            android:id="@+id/loading_mask"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/cardview_light_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+        </FrameLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

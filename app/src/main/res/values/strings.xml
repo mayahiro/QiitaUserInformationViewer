@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">QiitaUserInformationViewer</string>
+
+    <string name="items_count">Items: %d</string>
+    <string name="followers_count">Followers: %d</string>
+    <string name="followees_count">Followees: %d</string>
+
+    <string name="transition_image_name">transition_image_name</string>
+</resources>
